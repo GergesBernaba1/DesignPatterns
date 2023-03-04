@@ -3,14 +3,44 @@
 
 
 using FactoryDesignPattern;
+using FactoryDesignPattern.FactoryMethod;
+#region Factory
+//ICreditCard cardDetails = CreditCardfactory.GetCreditCard("Platinum");
 
-ICreditCard cardDetails = CreditCardfactory.GetCreditCard("Platinum");
+//if (cardDetails != null)
+//{
+//    Console.WriteLine("CardType : " + cardDetails.GetCardType());
+//    Console.WriteLine("CreditLimit : " + cardDetails.GetCreditLimit());
+//    Console.WriteLine("AnnualCharge :" + cardDetails.GetAnnualCharge());
+//}
+//else
+//{
+//    Console.Write("Invalid Card Type");
+//}
+//Console.ReadLine();
 
-if (cardDetails != null)
+#endregion
+
+#region Factory Method 
+
+ICreditCardFacory creditCard = new PlatinumFactory().CreateProduct();
+if (creditCard != null)
 {
-    Console.WriteLine("CardType : " + cardDetails.GetCardType());
-    Console.WriteLine("CreditLimit : " + cardDetails.GetCreditLimit());
-    Console.WriteLine("AnnualCharge :" + cardDetails.GetAnnualCharge());
+    Console.WriteLine("Card Type : " + creditCard.GetCardType());
+    Console.WriteLine("Credit Limit : " + creditCard.GetCreditLimit());
+    Console.WriteLine("Annual Charge :" + creditCard.GetAnnualCharge());
+}
+else
+{
+    Console.Write("Invalid Card Type");
+}
+Console.WriteLine("--------------");
+creditCard = new MoneyBackFactoryMethod().CreateProduct();
+if (creditCard != null)
+{
+    Console.WriteLine("Card Type : " + creditCard.GetCardType());
+    Console.WriteLine("Credit Limit : " + creditCard.GetCreditLimit());
+    Console.WriteLine("Annual Charge :" + creditCard.GetAnnualCharge());
 }
 else
 {
@@ -18,4 +48,4 @@ else
 }
 Console.ReadLine();
 
-
+#endregion

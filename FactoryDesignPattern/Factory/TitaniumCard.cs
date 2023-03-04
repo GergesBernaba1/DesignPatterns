@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FactoryDesignPattern
+namespace FactoryDesignPattern.Factory
 {
-    public class MoneyBack : ICreditCard
+    public class TitaniumCard : ICreditCard
     {
         public string GetCardType()
         {
-            return "MoneyBack";
+            return "Titanium Edge";
         }
         public int GetCreditLimit()
         {
-            return 15000;
+            return 25000;
         }
         public int GetAnnualCharge()
         {
-            return 500;
+            return 1500;
         }
     }
 }
